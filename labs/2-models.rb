@@ -20,18 +20,47 @@ Salesperson.destroy_all
 # 1b. check out the model file
 
 # 2. insert 1-2 rows in salespeople table.
+puts "There are #{Salesperson.all.count} salespeople"
+
+new_salesperson = Salesperson.new
+
+new_salesperson["first_name"] = "Ben"
+new_salesperson["last_name"] = "Block"
+new_salesperson["email"] = "bb@gmail.com"
+new_salesperson.save
+
+second_salesperson = Salesperson.new
+second_salesperson["first_name"] = "Brian"
+second_salesperson["last_name"] = "Eng"
+second_salesperson["email"] = "be@gmail.com"
+second_salesperson.save
 
 # 3. write code to display how many salespeople rows are in the database
-
+puts "There are #{Salesperson.all.count} salespeople"
 # ---------------------------------
 # Salespeople: 2
 
 # 4. modify/update column data for a row in the salespeople table.
+ben = Salesperson.find_by({"first_name" => "Ben", "last_name" => "Block"})
+#puts ben.inspect
+
+ben["email"] = "block@gmail.com"
+ben.save
+
+#puts ben.inspect
 
 # CHALLENGE:
 # 5. write code to display each salesperson's full name
-
+salespeople = Salesperson.all
+for salesperson in salespeople
+    first_name = salesperson["first_name"]
+    last_name = salesperson["last_name"]
+    puts "#{first_name} #{last_name}"
+end
 # ---------------------------------
 # Salespeople: 2
 # Ben Block
 # Brian Eng
+
+
+#Use rails runner labs/2-models.rb to run
