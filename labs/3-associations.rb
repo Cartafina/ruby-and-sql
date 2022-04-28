@@ -34,7 +34,7 @@ new_activity["salesperson_id"] = ben["id"]
 new_activity["note"] = "met at Cupertino"
 new_activity.save
 
-puts "There are #{Activity.count} activities"
+puts "There are #{Activity.all.count} activities"
 # Ben's Activities:
 # Tim Cook (Apple) - quick checkin over facetime
 # Tim Cook (Apple) - met at Cupertino
