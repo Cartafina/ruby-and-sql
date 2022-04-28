@@ -42,6 +42,12 @@ puts "There are #{Activity.all.count} activities"
 # 2. Display all the activities between the salesperson used above
 # and one of the contacts (sample output below):
 
+activities = Activity.where({"salesperson_id" => ben["id"], "contact_id" => tim["id"]})
+puts "Activities between Ben and Tim Cook"
+for activity in activities
+  puts "#{activity["note"]}"
+end  
+
 # ---------------------------------
 # Activities between Ben and Tim Cook:
 # - quick checkin over facetime
